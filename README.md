@@ -1,5 +1,5 @@
 #  Hide BigQuery Explorer Panel
-Project homepage: https://arcq.de/hide-bigquery-explorer-panel/
+Project homepage: https://arcq.de/hide-bigquery-explorer-panel/ \
 Github: https://github.com/SebastianArcq/hide-bq-explorer/
 
 ## About "Hide BigQuery Explorer Panel"
