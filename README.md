@@ -6,7 +6,7 @@ Github: https://github.com/SebastianArcq/hide-bq-explorer/
 "Hide BigQuery Explorer Panel" is a lightweight Chrome browser extension made for users of Google BigQuery. You now that huge "Explorer" side panel that shows your projects, data sets and tables, but takes up a huge part of your screen and cannot be minimized? "Hide BigQuery Explorer Panel" solves that issue by allowing you to quickly hide and show this entire column with the click of a button - giving you more screen real estate for your coding.
 
 ## How to install
-Simply install from the Chrome Web Store at [----------insert link here...].
+Simply install from the Chrome Web Store at https://chrome.google.com/webstore/detail/hide-bigquery-explorer-pa/gogipkdhiiopcbfakdagfkinjoecfoam/.
 
 ## How to use
 While in BigQuery, simply click the "Hide BigQuery Explorer Panel" icon to toggle the Explorer column. 
