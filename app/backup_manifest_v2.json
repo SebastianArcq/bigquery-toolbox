@@ -1,26 +1,24 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Hide BigQuery Explorer Panel",
     "description": "Hide and unhide the BigQuery Explorer sidepanel with one click, giving you more room to code.",
-    "version": "1.1.0",
+    "version": "1.0.1",
     "homepage_url" : "https://arcq.de/hide-bigquery-explorer-panel/",
     
     "icons": { 
         "128": "icon_128.png" 
     },
 
-    "action": {
+    "browser_action": {
         "default_icon": "icon.png"
     },
 
     "background": { 
-        "service_worker": "background-wrapper.js"
+        "scripts": ["background.js"],
+        "persistent": false
 	},
 
-    "permissions": [
-        "scripting",
-        "activeTab"
-    ],
+    "permissions": ["activeTab"],
 
     "commands": {
 		"toggle-qjs": {

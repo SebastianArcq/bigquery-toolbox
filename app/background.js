@@ -7,10 +7,19 @@
  * Sebastian Arcq
  */
 
-// listen for our browerAction to be clicked
-chrome.browserAction.onClicked.addListener(function (tab) {
-	// for the current tab, inject the "inject.js" file & execute it
-	chrome.tabs.executeScript(tab.ib, {
-		file: 'inject.js'
+console.log("executing background.js"); // --> service worker console
+ 
+async function getCurrentTab() {
+   let queryOptions = { active: true, currentWindow: true };
+   let [tab] = await chrome.tabs.query(queryOptions);
+   return tab;
+ }
+
+chrome.action.onClicked.addListener(async function (tab) {
+	//console.log("click");
+	//console.log("Tab id: " + tab.id);
+	chrome.scripting.executeScript({
+		target: {tabId: tab.id},
+		files: ['inject.js']
 	});
 });

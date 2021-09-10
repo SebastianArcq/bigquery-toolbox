@@ -7,6 +7,8 @@
  * Sebastian Arcq
  */
 
+console.log("executing inject.js"); // --> browser console
+
 (function() {
 
 	if (window.location.href.includes("console.cloud.google.com/bigquery") == true) {
