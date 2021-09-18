@@ -7,7 +7,7 @@
  * Sebastian Arcq
  */
 
-console.log("executing inject.js..."); // --> log to browser console
+console.log("executing inject.js..."); // --> log to console
 
 (function() {
 
@@ -30,7 +30,6 @@ console.log("executing inject.js..."); // --> log to browser console
         console.log("hide_status: " + hide_status);
 
         // Hide / Unhide
-        
         if (hide_status == "not_hidden") {
             sidebar.style.display = 'none'; // hide sidebar
             top_toolbar.style.display = 'none'; // hide top toolbar
