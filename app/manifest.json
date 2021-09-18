@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Hide BigQuery Explorer Panel",
     "description": "Hide and unhide the BigQuery Explorer sidepanel with one click, giving you more room to code.",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "homepage_url" : "https://arcq.de/hide-bigquery-explorer-panel/",
     
     "icons": { 
