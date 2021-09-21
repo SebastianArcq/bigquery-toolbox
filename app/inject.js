@@ -11,24 +11,21 @@ console.log("executing inject.js..."); // --> log to console
 
 (function() {
 
-	if (window.location.href.includes("console.cloud.google.com/bigquery") == true) {
+    function hideElements(options) {
+        console.log("options: " + options);
 
         // Declare relevant objects
         // BQ exlorer (containing projects, tables)
         sidebar = document.querySelectorAll("cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-vertical")[0];
-
         // Hide top toolbar ("Features & Info" / "Shortcut" / "Disable Editor Tabs")
         top_toolbar = document.querySelectorAll("#default-action-bar > mat-toolbar")[0];
-
         // Hide query results
         query_results= document.querySelectorAll("cfc-panel.cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-horizontal")[0];
-
         // Initialize hide_status
         if (typeof hide_status == 'undefined') {
             hide_status = 'not_hidden';
         }
         console.log("hide_status: " + hide_status);
-
         // Hide / Unhide
         if (hide_status == "not_hidden") {
             sidebar.style.display = 'none'; // hide sidebar
@@ -40,15 +37,30 @@ console.log("executing inject.js..."); // --> log to console
             console.log('done, continuing');
             hide_status = "hidden" // update hide_status
             console.log("hide_status changed to: " + hide_status);
-
         } else {
             sidebar.style.display = 'flex'; // unhide sidebar
             top_toolbar.style.display = 'flex'; // unhide top toolbar
             query_results.style.height = '50%'; // unhide query results
             hide_status = 'not_hidden'; // update hide_status
             console.log("hide_status changed to: " + hide_status);
-        }
-
+        };
     };
+    
+
+	if (window.location.href.includes("console.cloud.google.com/bigquery") == true) {
+
+        chrome.storage.sync.get(['favoriteColor', 'likesColor'], function(result) {
+            var favoriteColor = result.favoriteColor;
+            var likesColor = result.likesColor;
+
+            console.log('Value for favoriteColor: ' + favoriteColor);
+            console.log('Value for likesColor: ' + likesColor)
+
+            hideElements('hello');
+            
+          });
+    };
+
+
 
 })();
