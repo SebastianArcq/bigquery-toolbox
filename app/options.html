@@ -7,27 +7,53 @@
  * Sebastian Arcq
 -->
 
- <!DOCTYPE html>
+<!-- 
+* CODE SNIPPETS:
++ https://developer.chrome.com/docs/extensions/mv3/options/
+-->
+<!DOCTYPE html>
 <html>
-<head><title>My Test Extension Options</title></head>
+<head>
+    <title>Options</title>
+    <style>
+        .checkboxgroup{
+            width: 20em;
+            overflow: auto;
+            border: none;
+        }
+        .checkboxgroup p{
+            width: 7em;
+            text-align: right;
+        }
+        .checkboxgroup label{
+            width: 12em;
+            float: left;
+        }
+    </style>
+
+</head>
+
 <body>
 
-Favorite color:
-<select id="color">
- <option value="red">red</option>
- <option value="green">green</option>
- <option value="blue">blue</option>
- <option value="yellow">yellow</option>
-</select>
+<div>
+    <h1>Hide BigQuery Explorer Panel: Settings</h1>
+    <p>
+        This extension can hide not only the explorer panel, has a few more tricks up the sleeve:
+    </p>
+    <fieldset class="checkboxgroup">
+        <label><input type="checkbox" id="hide_explorer_panel">Hide Explorer Panel</label>
+        <label><input type="checkbox" id="hide_top_toolbar">Hide Top Toolbar</label>
+        <label><input type="checkbox" id="hide_query_results">Hide Query Results</label>
+    </fieldset>
+</div>
 
-<label>
-  <input type="checkbox" id="like">
-  I like colors.
-</label>
+<div id="status" style="height: 20px;"></div> <!-- this is used to display the "Options saved" message -->
 
-<div id="status"></div>
-<button id="save">Save</button>
+<div style="margin-top: 10px;">
+    <button id="save">Save</button>
+</div>
 
 <script src="options.js"></script>
+
 </body>
 </html>

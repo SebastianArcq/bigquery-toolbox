@@ -7,7 +7,7 @@
  * Sebastian Arcq
  */
 
-console.log("executing inject.js..."); // --> log to console
+// console.log("executing inject.js..."); // --> log to console
 
 (function() {
 
@@ -49,16 +49,22 @@ console.log("executing inject.js..."); // --> log to console
 
 	if (window.location.href.includes("console.cloud.google.com/bigquery") == true) {
 
-        chrome.storage.sync.get(['favoriteColor', 'likesColor'], function(result) {
-            var favoriteColor = result.favoriteColor;
-            var likesColor = result.likesColor;
+        chrome.storage.sync.get({
+            // Use default values
+            hide_explorer_panel: true,
+            hide_top_toolbar: false,
+            hide_query_results: false
+        }, function(items) {
 
-            console.log('Value for favoriteColor: ' + favoriteColor);
-            console.log('Value for likesColor: ' + likesColor)
+            console.log('Value for hide_explorer_panel: ' + items.hide_explorer_panel);
+            console.log('Value for hide_top_toolbar: ' + items.hide_top_toolbar);
+            console.log('Value for hide_query_results: ' + items.hide_query_results);
 
-            hideElements('hello');
+            hideElements('hello'); // <<<<<<<<<< call hideElements with the three settings (array) as parameters
             
           });
+    } else {
+        console.log('this extension only runs on console.cloud.google.com/bigquery');
     };
 
 
