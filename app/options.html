@@ -16,44 +16,33 @@
 <head>
     <title>Options</title>
     <style>
-        .checkboxgroup{
-            width: 20em;
-            overflow: auto;
-            border: none;
-        }
-        .checkboxgroup p{
-            width: 7em;
-            text-align: right;
-        }
-        .checkboxgroup label{
-            width: 12em;
-            float: left;
+        li {
+            list-style: none;
         }
     </style>
-
 </head>
 
 <body>
+    
+    <div>
+        <h1>Hide BigQuery Explorer Panel: Settings</h1>
+        <p>
+            This extension can hide not only the explorer panel, has a few more tricks up the sleeve:
+        </p>
+        <ul>
+            <li><label><input type="checkbox" id="hide_explorer_panel">Hide Explorer Panel</label></li>
+            <li><label><input type="checkbox" id="hide_top_toolbar">Hide Top Toolbar ("Features & Info")</label></li>
+            <li><label><input type="checkbox" id="hide_query_results">Hide Query Results</label></li>
+        </ul>
+    </div>
 
-<div>
-    <h1>Hide BigQuery Explorer Panel: Settings</h1>
-    <p>
-        This extension can hide not only the explorer panel, has a few more tricks up the sleeve:
-    </p>
-    <fieldset class="checkboxgroup">
-        <label><input type="checkbox" id="hide_explorer_panel">Hide Explorer Panel</label>
-        <label><input type="checkbox" id="hide_top_toolbar">Hide Top Toolbar</label>
-        <label><input type="checkbox" id="hide_query_results">Hide Query Results</label>
-    </fieldset>
-</div>
+    <div id="status" style="height: 20px;"></div> <!-- this is used to display the "Options saved" message -->
 
-<div id="status" style="height: 20px;"></div> <!-- this is used to display the "Options saved" message -->
+    <div style="margin-top: 10px;">
+        <button id="save">Save</button>
+    </div>
 
-<div style="margin-top: 10px;">
-    <button id="save">Save</button>
-</div>
-
-<script src="options.js"></script>
+    <script src="options.js"></script>
 
 </body>
 </html>

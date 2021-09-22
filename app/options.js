@@ -47,6 +47,22 @@ function restore_options() {
   });
 };
 
+// Function to close the current options tab
+function closeOptionsTab() {
+    chrome.tabs.getCurrent(function(tab) {
+        chrome.tabs.remove(tab.id, function() { });
+    });
+};
+
+// Function to save, wait, then close the current options tab
+function saveAndClose() {
+    save_options();
+    setTimeout(function() {
+        closeOptionsTab();
+    }, 750);
+    
+};
+
 document.addEventListener('DOMContentLoaded', restore_options);
 
-document.getElementById('save').addEventListener('click', save_options);
+document.getElementById('save').addEventListener('click', saveAndClose);
