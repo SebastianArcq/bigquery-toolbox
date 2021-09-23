@@ -59,10 +59,15 @@ function saveAndClose() {
     save_options();
     setTimeout(function() {
         closeOptionsTab();
-    }, 750);
-    
+    }, 750);    
+};
+
+// Function to apply (save, but not close)
+function apply() {
+  save_options();   
 };
 
 document.addEventListener('DOMContentLoaded', restore_options);
 
-document.getElementById('save').addEventListener('click', saveAndClose);
+document.getElementById('save_button').addEventListener('click', saveAndClose);
+document.getElementById('apply_button').addEventListener('click', apply);
