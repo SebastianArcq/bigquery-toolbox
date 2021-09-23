@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "BigQuery Toolbox",
-    "description": "Hide and unhide the BigQuery Explorer sidepanel as well as (optionally) the top toolbar ('Features & Info' / 'Shortcut' / 'Disable Editor Tabs') and the query results with one click - giving you more room to focus on your code.",
+    "description": "Hide / unhide the BQ Explorer side panel and (optionally) the top toolbar and the query results - giving you more room to focus on your code.",
     "version": "1.5.0",
     "homepage_url" : "https://github.com/SebastianArcq/bigquery-toolbox/",
     
