@@ -26,7 +26,7 @@
 
         button_wrappers.forEach(function(item) { // loop through all elements
             if (item.innerHTML.includes(oldString)) { // look for oldstring ("Compose new query")
-                item.innerHTML = item.innerHTML.replace(oldString, newString); // remove that string
+                item.innerHTML = item.innerHTML.replace(oldString, newString); // replace oldstring with newstring
             }  
         });
     };
@@ -63,7 +63,7 @@
         // Hide / Unhide
         if (hide_status == "not_hidden") {
             
-            // HIDE STUFF:
+            // Hide all the things:
             if (hide_explorer_panel == true) {
                 sidebar.style.display = 'none'; // hide sidebar
             };
@@ -89,7 +89,7 @@
 
         } else {
             
-            // UNHIDE STUFF
+            // Unhide all the things:
             if (hide_explorer_panel == true) {
                 sidebar.style.display = 'flex'; // unhide sidebar
             };
@@ -142,6 +142,5 @@
     } else {
         console.log('this extension only runs on console.cloud.google.com/bigquery');
     };
-
 
 })();
