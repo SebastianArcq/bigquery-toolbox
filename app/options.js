@@ -17,11 +17,13 @@ function save_options() {
   var hide_explorer_panel = document.getElementById('hide_explorer_panel').checked;
   var hide_top_toolbar = document.getElementById('hide_top_toolbar').checked;
   var hide_query_results = document.getElementById('hide_query_results').checked;
+  var minimize_new_query_button = document.getElementById('minimize_new_query_button').checked;
 
   chrome.storage.sync.set({
     hide_explorer_panel: hide_explorer_panel,
     hide_top_toolbar: hide_top_toolbar,
-    hide_query_results: hide_query_results
+    hide_query_results: hide_query_results,
+    minimize_new_query_button: minimize_new_query_button
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -39,11 +41,13 @@ function restore_options() {
     chrome.storage.sync.get({
         hide_explorer_panel: true,
         hide_top_toolbar: false,
-        hide_query_results: false
+        hide_query_results: false,
+        minimize_new_query_button: false
     }, function(items) {
     document.getElementById('hide_explorer_panel').checked = items.hide_explorer_panel;
     document.getElementById('hide_top_toolbar').checked = items.hide_top_toolbar;
     document.getElementById('hide_query_results').checked = items.hide_query_results;
+    document.getElementById('minimize_new_query_button').checked = items.minimize_new_query_button;
   });
 };
 

@@ -9,19 +9,42 @@
 
 // console.log("executing inject.js..."); // --> log to console
 
+
 (function() {
+
+    // FUNCTION TO MINIMIZE 'COMPOSE NEW QUERY'-BUTTON
+    function toggleComposeButton(para) {
+        if (para == 'minimize') {
+            var oldString = 'Compose new query';
+            var newString = '<!--Compose new query-->';
+        } else if (para == 'maximize') {
+            var oldString = '<!--Compose new query-->';
+            var newString = 'Compose new query';
+        };
+
+        var button_wrappers = document.querySelectorAll("span.mat-button-wrapper"); // returns an array ("NodeList") of all spans with that class (30+)
+
+        button_wrappers.forEach(function(item) { // loop through all elements
+            if (item.innerHTML.includes(oldString)) { // look for oldstring ("Compose new query")
+                item.innerHTML = item.innerHTML.replace(oldString, newString); // remove that string
+            }  
+        });
+    };
 
     // FUNCTION TO HIDE ELEMENTS
     function hideElements(options) {
         console.log("calling hideElements()...");
 
-        hide_explorer_panel = options.get('hide_explorer_panel');
-        hide_top_toolbar = options.get('hide_top_toolbar');
-        hide_query_results = options.get('hide_query_results');
+        // Retrieve options from function parameter
+        var hide_explorer_panel = options.get('hide_explorer_panel');
+        var hide_top_toolbar = options.get('hide_top_toolbar');
+        var hide_query_results = options.get('hide_query_results');
+        var minimize_new_query_button = options.get('minimize_new_query_button');
 
         console.log('Value for hide_explorer_panel: ' + hide_explorer_panel);
         console.log('Value for hide_top_toolbar: ' + hide_top_toolbar);
         console.log('Value for hide_query_results: ' + hide_query_results);
+        console.log('Value for minimize_new_query_button: ' + minimize_new_query_button);
 
         // Declare relevant objects
         // BQ exlorer (containing projects, tables)
@@ -39,7 +62,8 @@
         
         // Hide / Unhide
         if (hide_status == "not_hidden") {
-
+            
+            // HIDE STUFF:
             if (hide_explorer_panel == true) {
                 sidebar.style.display = 'none'; // hide sidebar
             };
@@ -55,13 +79,17 @@
                 }, (300));
                 console.log('done, continuing');
             };
+
+            if (minimize_new_query_button == true) {
+                toggleComposeButton('minimize'); // Call toggleComposeButton to minimize button
+            };  
             
             hide_status = "hidden" // update hide_status
-
             console.log("hide_status changed to: " + hide_status);
 
         } else {
-
+            
+            // UNHIDE STUFF
             if (hide_explorer_panel == true) {
                 sidebar.style.display = 'flex'; // unhide sidebar
             };
@@ -73,9 +101,12 @@
             if (hide_query_results == true) {
                 query_results.style.height = '50%'; // unhide query results
             };
-       
-            hide_status = 'not_hidden'; // update hide_status
 
+            if (minimize_new_query_button == true) {
+                toggleComposeButton('maximize'); // Call toggleComposeButton to maximize button
+            };     
+
+            hide_status = 'not_hidden'; // update hide_status
             console.log("hide_status changed to: " + hide_status);
         };
     };
@@ -87,19 +118,22 @@
             // Use default values
             hide_explorer_panel: true,
             hide_top_toolbar: false,
-            hide_query_results: false
+            hide_query_results: false,
+            minimize_new_query_button: false
         }, function(items) {
 
             // Log values of vars to console
             //console.log('Value for hide_explorer_panel: ' + items.hide_explorer_panel);
             //console.log('Value for hide_top_toolbar: ' + items.hide_top_toolbar);
             //console.log('Value for hide_query_results: ' + items.hide_query_results);
+            //console.log('Value for minimize_new_query_button: ' + items.minimize_new_query_button);
 
             // Add all settings to a Map object
             var settingsArray = new Map()
             settingsArray.set('hide_explorer_panel', items.hide_explorer_panel);
             settingsArray.set('hide_top_toolbar', items.hide_top_toolbar);
             settingsArray.set('hide_query_results', items.hide_query_results);
+            settingsArray.set('minimize_new_query_button', items.minimize_new_query_button);
 
             // Call hideElements with the three settings as parameters
             hideElements(settingsArray);
