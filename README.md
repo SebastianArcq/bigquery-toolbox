@@ -17,5 +17,3 @@ For easy access, make sure to pin the extension icon to you Chrome menu by click
 ## Contributing
 Pull requests are welcome.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
