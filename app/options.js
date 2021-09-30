@@ -71,7 +71,43 @@ function apply() {
   save_options();   
 };
 
+
+// Listen to change of the tick box status
+// https://stackoverflow.com/questions/24172963/jquery-change-method-in-vanilla-javascript
+// https://stackoverflow.com/questions/9887360/how-can-i-check-if-a-checkbox-is-checked
+document.querySelector('#hide_top_toolbar').addEventListener('change',function(){
+  if (document.getElementById('hide_top_toolbar').checked) {
+    console.log("box checked");
+    executeScriptInTab("f_HideTopToolbar.js", "HideTopToolbar toggled")
+
+  } else {
+    console.log("box un-checked");
+  }
+});
+
+// Send code to BQ tabs
+function executeScriptInTab(scriptName, callbackText) {
+  console.log("executing executeScriptInTab()");
+  chrome.tabs.query({
+    url: "https://console.cloud.google.com/bigquery*"
+  }, function(tabs) {
+    console.log(tabs);
+    tabs.forEach(t => {
+      chrome.scripting.executeScript({
+          target: {tabId: t.id},
+          files: [scriptName]
+        },
+        function() {
+          console.log(callbackText);
+        }
+      );
+    });
+  });
+}
+
+// Event listeners: Page loaded
 document.addEventListener('DOMContentLoaded', restore_options);
 
+// Event listeners: Buttons clicked
 document.getElementById('save_button').addEventListener('click', saveAndClose);
 document.getElementById('apply_button').addEventListener('click', apply);

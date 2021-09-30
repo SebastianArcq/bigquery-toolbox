@@ -20,9 +20,14 @@
     "permissions": [
         "scripting",
         "activeTab",
-        "storage"
+        "storage",
+        "tabs"
     ],
 
+    "host_permissions": [
+        "https://console.cloud.google.com/bigquery"
+    ],
+    
     "options_ui": {
         "page": "options.html",
         "open_in_tab": true
