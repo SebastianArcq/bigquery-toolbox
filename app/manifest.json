@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "BigQuery Toolbox",
     "description": "More room to focus on your code: Hides / unhides the BQ Explorer side panel and (optionally) the top toolbar and the query results.",
-    "version": "1.6.0",
+    "version": "2.0.0",
     "homepage_url" : "https://github.com/SebastianArcq/bigquery-toolbox/",
     
     "icons": { 
