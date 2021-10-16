@@ -77,11 +77,10 @@ function restore_options() {
 // Function to apply settings (save, but not close)
 // =============================================================================
 // There are two types of features:
-// 1. Icon-click-features: are executed when clicking the icon. Those just need to be saved.
+// 1. Icon-click-features: Are executed when clicking the icon. Those just need to be saved.
 //    --> hide_explorer_panel, hide_query_results
-// 2. Options-features: are set in the Option menu. Those need to be applied when clicking the Apply / Save buttons
+// 2. Options-features: Are set in the Option menu. Those need to be applied when clicking the Apply / Save buttons
 //    --> hide_top_toolbar, minimize_new_query_button
-
 
 function applySettings() {
     devlog("executing applySettings()...");
