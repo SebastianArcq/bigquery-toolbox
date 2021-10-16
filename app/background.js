@@ -155,14 +155,26 @@ function executeScriptInTabs(scriptName, callbackText) {
 // CLICKING THE EXTENSION BUTTON
 // =============================================================================
 // This function is executed when the extension button is clicked:
-// TO DO: Change this function so that iconClicked.js is called only on BigQuery pages.
-chrome.action.onClicked.addListener(async function (tab) {
+// https://stackoverflow.com/questions/69596600/how-to-prevent-chrome-extension-to-run-on-chrome
+// "If lastError has been set and you don't check it within the callback function, then an error will be raised."
+// (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError)
+chrome.action.onClicked.addListener(function (tab) {
 	devlog("executing addListener...");
 	devlog("Tab id: " + tab.id);
 	chrome.scripting.executeScript({
 		target: {tabId: tab.id},
 		files: ['iconClicked.js']
-	});
+	//}).catch(() => {}); // this also works
+	}, function() {
+		let myError = chrome.runtime.lastError; // ignoring the error
+		if (myError) {
+			if (myError.message.includes("chrome://")) { 
+				console.log("this extension only runs on console.cloud.google.com/bigquery");
+			} else {
+				console.log(myError.message); // shouldn't happen.
+			};
+		};
+	}); 
 });
 
 
