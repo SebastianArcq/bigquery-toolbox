@@ -44,7 +44,9 @@ devlog('Dev mode ON...');
         // BQ exlorer (containing projects, tables)
         sidebar = document.querySelectorAll("cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-vertical")[0];
         // Hide query results
-        query_results= document.querySelectorAll("cfc-panel.cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-horizontal")[0];
+        query_results1 = document.querySelectorAll("cfc-panel.cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-horizontal")[0]; // left tab
+        query_results2 = document.querySelectorAll("cfc-panel.cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-horizontal")[1]; // right tab
+        devlog("query_results2: " + query_results2); // "undefined" if only one tab in use
         
         // Initialize hide_status
         if (typeof hide_status == 'undefined') {
@@ -64,7 +66,8 @@ devlog('Dev mode ON...');
             if (hide_query_results == true) {
                 devlog('pausing for a bit...'); // the height is changed when the other elements are hidden. Needs a few ms to update.
                 setTimeout(function() {
-                    query_results.style.height = '100%'; // hide query results
+                    query_results1.style.height = '100%'; // hide query results (left)
+                    if(query_results2) {query_results2.style.height = '100%'}; // hide query results (right)
                 }, (300));
                 devlog('done, continuing');
             };
@@ -80,7 +83,8 @@ devlog('Dev mode ON...');
             };
 
             if (hide_query_results == true) {
-                query_results.style.height = '50%'; // unhide query results
+                query_results1.style.height = '50%'; // unhide query results (left)
+                if(query_results2) {query_results2.style.height = '50%'}; // unhide query results (right)
             };
 
             hide_status = 'not_hidden'; // update hide_status
