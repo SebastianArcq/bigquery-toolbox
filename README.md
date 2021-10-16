@@ -4,15 +4,20 @@ Project homepage: https://arcq.de/bigquery-toolbox/ \
 Github: https://github.com/SebastianArcq/bigquery-toolbox/
 
 ## About BigQuery Toolbox
-The BigQuery Toolbox (formerly know as "Hide BigQuery Explorer Panel") is a lightweight Chrome browser extension made for users of Google BigQuery. You now that huge "Explorer" side panel that shows your projects, data sets and tables, but takes up a huge part of your screen and cannot be minimized? BigQuery Toolbox solves that issue by allowing you to quickly hide and show this entire column with the click of a button - giving you more screen real estate for your coding. 
+The BigQuery Toolbox is a lightweight Chrome browser extension made for users of Google BigQuery. The BigQuery Toolbox comes with a set of features designed to make your live in BigQuery a lot easier. Top features include:
 
-BigQuery Toolbox also allows you to get rid of the utterly useless top toolbar ("Features & Info" / "Shortcut" / "Disable Editor Tabs"), and hide the Query results if you so wish.
+* Toggle the "Explorer" side panel with the click of a button
+* Toggle the "Query Results" with the click of a button
+* Hide the top toolbar ("Features & Info" / "Shortcut" / "Disable Editor Tabs")
+* Minimize the "Compose new query" button
 
 ## How to install
 Simply install from the Chrome Web Store at https://chrome.google.com/webstore/detail/bigquery-toolbox/gogipkdhiiopcbfakdagfkinjoecfoam.
 
 ## How to use
-While in BigQuery, simply click the BigQuery Toolbox button to toggle the Explorer column. Go to the options to also make that button hide the top toolbar and the query results.
+While in BigQuery, simply click the BigQuery Toolbox button to toggle the Explorer column. Go to the options to also make that button hide the query results.
+
+In the options you can also choose to hide the top toolbar and to minimize the "Compose new query" button.
 
 For easy access, make sure to pin the extension icon to you Chrome menu by clicking on the puzzle icon next to your address bar and "pin".
 
