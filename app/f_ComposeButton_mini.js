@@ -1,4 +1,14 @@
-// FUNCTION TO MINIMIZE 'COMPOSE NEW QUERY'-BUTTON
+/*
+ * BigQuery Toolbox
+ * Project homepage: https://arcq.de/bigquery-toolbox/
+ * Github: https://github.com/SebastianArcq/bigquery-toolbox/
+ * 
+ * MIT License
+ * Sebastian Arcq
+ * 
+ * Function to minimize the "Compose new query" button
+ */
+
 (function () {
     //console.log("executing f_ComposeButton_mini.js...");
 

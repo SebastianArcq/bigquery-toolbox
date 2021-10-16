@@ -1,3 +1,14 @@
+/*
+ * BigQuery Toolbox
+ * Project homepage: https://arcq.de/bigquery-toolbox/
+ * Github: https://github.com/SebastianArcq/bigquery-toolbox/
+ * 
+ * MIT License
+ * Sebastian Arcq
+ * 
+ * Function to hide the top toolbar
+ */
+
 (function () {
     //console.log("executing f_TopToolbar_hide.js...");
 

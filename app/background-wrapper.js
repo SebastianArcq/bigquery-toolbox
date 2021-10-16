@@ -5,6 +5,8 @@
  * 
  * MIT License
  * Sebastian Arcq
+ * 
+ * This file is just a wrapper for the background js that allows catching errors
  */
 
 console.log("executing background-wrapper.js"); // --> service worker console

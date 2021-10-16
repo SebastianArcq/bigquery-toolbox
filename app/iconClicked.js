@@ -5,9 +5,9 @@
  * 
  * MIT License
  * Sebastian Arcq
+ * 
+ * This file now only deals with things happening after the app icon is clicked
  */
-
-// this file now only deals with things happening after the app icon is clicked
 
 console.log("executing iconClicked.js...");
 

@@ -5,6 +5,8 @@
  * 
  * MIT License
  * Sebastian Arcq
+ * 
+ * background.js core file
  */
 
 console.log(">>> executing background.js..."); // background.js logs to service worker console!

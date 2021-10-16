@@ -5,6 +5,8 @@
  * 
  * MIT License
  * Sebastian Arcq
+ * 
+ * This file now only deals with things happen in the option menu
  */
 
 console.log(">>> executing options.js...");

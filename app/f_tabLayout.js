@@ -1,3 +1,14 @@
+/*
+ * BigQuery Toolbox
+ * Project homepage: https://arcq.de/bigquery-toolbox/
+ * Github: https://github.com/SebastianArcq/bigquery-toolbox/
+ * 
+ * MIT License
+ * Sebastian Arcq
+ * 
+ * Function to change the layout of the tabs
+ */
+
 // function to add style tag to head
 function addStyle(css, classname) {
     var style = document.createElement('style')
