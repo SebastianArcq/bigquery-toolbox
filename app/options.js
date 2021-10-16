@@ -24,7 +24,6 @@ function devlog(logtext) {
 
 devlog('Dev mode ON...');
 
-
 // Saves options to chrome.storage
 // =============================================================================
 // Stores the current status of all check boxes to chrome.storage
