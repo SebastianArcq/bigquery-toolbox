@@ -31,6 +31,7 @@ devlog('Dev mode ON...');
 // to a new version, and when Chrome is updated to a new version."
 chrome.runtime.onInstalled.addListener(() => {
 	devlog(">>> executing runtime.onInstalled...");
+	
 	// add a badge to the icon (is removed on click, see below)
 	chrome.action.setBadgeText({text: "new"});
   	chrome.action.setBadgeBackgroundColor({color: "#FF2923"});
