@@ -14,7 +14,7 @@ console.log(">>> executing background.js..."); // background.js logs to service 
 // DEV MODE FUNCTIONALITY
 // =============================================================================
 // Set devmode = 1 to display all sorts of console logs
-var devmode = 0;
+var devmode = 1;
 
 function devlog(logtext) {
     if (devmode == 1) {
@@ -31,7 +31,9 @@ devlog('Dev mode ON...');
 // to a new version, and when Chrome is updated to a new version."
 chrome.runtime.onInstalled.addListener(() => {
 	devlog(">>> executing runtime.onInstalled...");
-	devlog("nothing happening here.");
+	// add a badge to the icon (is removed on click, see below)
+	chrome.action.setBadgeText({text: "new"});
+  	chrome.action.setBadgeBackgroundColor({color: "#FF2923"});
 });
 
 
@@ -162,6 +164,7 @@ function executeScriptInTabs(scriptName, callbackText) {
 // (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError)
 chrome.action.onClicked.addListener(function (tab) {
 	devlog("executing addListener...");
+	chrome.action.setBadgeText({text: ""}); // remove icon badge text
 	devlog("Tab id: " + tab.id);
 	chrome.scripting.executeScript({
 		target: {tabId: tab.id},
