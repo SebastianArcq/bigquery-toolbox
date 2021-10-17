@@ -14,7 +14,7 @@ console.log(">>> executing background.js..."); // background.js logs to service 
 // DEV MODE FUNCTIONALITY
 // =============================================================================
 // Set devmode = 1 to display all sorts of console logs
-var devmode = 1;
+var devmode = 0;
 
 function devlog(logtext) {
     if (devmode == 1) {
