@@ -139,7 +139,7 @@ chrome.action.onClicked.addListener(function (tab) {
 	}, function() {
 		let myError = chrome.runtime.lastError; // needs to be checked to be ignored
 		if (myError) {
-			if (myError.message.includes("chrome://")) { 
+			if (myError.message.includes("chrome://") || myError.message.includes("chrome-extension://")) {
 				console.log("this extension only runs on console.cloud.google.com/bigquery");
 			} else {
 				console.log(myError.message); // shouldn't happen.
