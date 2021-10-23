@@ -11,6 +11,10 @@
 
 // Devmode function
 
+// How do subscripts work?
+// for options.js --> footer of options.html
+// for background.js and iconClicked.js --> importScripts in background-wrapper.js
+
 console.log(">>> executing f_devlog.js...");
 
 function devlog(logtext) {

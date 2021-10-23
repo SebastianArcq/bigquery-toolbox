@@ -94,26 +94,6 @@ function applySettings() {
 	};
 };
 
-// Send code to ALL BQ tabs (this function is also in also in background.js!)
-function executeScriptInTabs(scriptName, callbackText) {
-  devlog("> executing executeScriptInTab()");
-  chrome.tabs.query({
-    url: "https://console.cloud.google.com/bigquery*"
-  }, function(tabs) {
-    devlog(tabs);
-    tabs.forEach(t => {
-      chrome.scripting.executeScript({
-          target: {tabId: t.id},
-          files: [scriptName]
-        },
-        function() {
-          devlog(callbackText);
-        }
-      );
-    });
-  });
-}
-
 
 // =============================================================================
 // BUTTONS --> FUNCTIONS

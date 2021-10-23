@@ -14,7 +14,11 @@
 console.log(">>> executing background-wrapper.js"); // --> service worker console
 
 try {
-    importScripts("f_devlog.js", "background.js");
+    importScripts(
+      "f_devlog.js", 
+      "f_executeScriptInTabs.js", 
+      "background.js"
+    );
   } catch (e) {
     console.error(e);
   }

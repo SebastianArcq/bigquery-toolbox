@@ -123,27 +123,6 @@ async function main(){
 }
 
 
-// Send code to ALL BQ tabs (this function is also in also in options.js!)
-// =============================================================================
-function executeScriptInTabs(scriptName, callbackText) {
-	devlog("> executing executeScriptInTab()");
-	chrome.tabs.query({
-	  url: "https://console.cloud.google.com/bigquery*"
-	}, function(tabs) {
-	  devlog(tabs);
-	  tabs.forEach(t => {
-		chrome.scripting.executeScript({
-			target: {tabId: t.id},
-			files: [scriptName]
-		  },
-		  function() {
-			console.log(callbackText);
-		  }
-		);
-	  });
-	});
-  }
-
 // CLICKING THE EXTENSION BUTTON
 // =============================================================================
 // This function is executed when the extension button is clicked:
@@ -158,7 +137,7 @@ chrome.action.onClicked.addListener(function (tab) {
 		target: {tabId: tab.id},
 		files: ['f_devlog.js', 'iconClicked.js']
 	}, function() {
-		let myError = chrome.runtime.lastError; // ignoring the error
+		let myError = chrome.runtime.lastError; // needs to be checked to be ignored
 		if (myError) {
 			if (myError.message.includes("chrome://")) { 
 				console.log("this extension only runs on console.cloud.google.com/bigquery");
