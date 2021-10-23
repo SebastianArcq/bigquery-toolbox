@@ -11,26 +11,12 @@
 
 console.log(">>> executing options.js...");
 
-// DEV MODE FUNCTIONALITY
-// =============================================================================
-// Set devmode = 1 to display all sorts of console logs
-var devmode = 0;
-
-function devlog(logtext) {
-    if (devmode == 1) {
-		console.log(logtext);
-	} // otherwise: do nothing
-};
-
-devlog('Dev mode ON...');
-
-
 // Saves options to chrome.storage
 // =============================================================================
 // Stores the current status of all check boxes to chrome.storage
 
 function save_options() {
-  devlog("executing save_options()...");
+  devlog("> executing save_options()...");
   
   var hide_explorer_panel = document.getElementById('hide_explorer_panel').checked;
   var hide_query_results = document.getElementById('hide_query_results').checked;
@@ -56,7 +42,7 @@ function save_options() {
 // =============================================================================
 // Restores checkbox state using the preferences stored in chrome.storage.
 function restore_options() {
-    devlog("executing restore_options()...");
+    devlog("> executing restore_options()...");
 
     chrome.storage.sync.get({
             // Default fallback values (if undefined)
@@ -83,7 +69,7 @@ function restore_options() {
 //    --> hide_top_toolbar, minimize_new_query_button
 
 function applySettings() {
-    devlog("executing applySettings()...");
+    devlog("> executing applySettings()...");
 
     // Determine the state of the check boxes (for Options-features only)
     chk_hideTopToolbar = document.getElementById('hide_top_toolbar').checked;
@@ -108,9 +94,9 @@ function applySettings() {
 	};
 };
 
-// Send code to ALL BQ tabs
+// Send code to ALL BQ tabs (this function is also in also in background.js!)
 function executeScriptInTabs(scriptName, callbackText) {
-  devlog("executing executeScriptInTab()");
+  devlog("> executing executeScriptInTab()");
   chrome.tabs.query({
     url: "https://console.cloud.google.com/bigquery*"
   }, function(tabs) {
@@ -136,7 +122,7 @@ function executeScriptInTabs(scriptName, callbackText) {
 // Function to close the current options tab
 // =============================================================================
 function closeOptionsTab() {
-  devlog("executing closeOptionsTab()...");
+  devlog("> executing closeOptionsTab()...");
 
   chrome.tabs.getCurrent(function(tab) {
       chrome.tabs.remove(tab.id, function() { });
@@ -146,7 +132,7 @@ function closeOptionsTab() {
 // Function to save, wait, then close the current options tab
 // =============================================================================
 function buttonSaveAndClose() {
-  devlog("executing buttonSaveAndClose()...");
+  devlog("> executing buttonSaveAndClose()...");
   save_options();
   applySettings()
   // Wait a bit before closing the tab so the "save" message can be seen.
@@ -158,7 +144,7 @@ function buttonSaveAndClose() {
 // Click Apply button --> save and apply options, but don't close the options
 // =============================================================================
 function buttonApply() {
-  devlog("executing buttonApply()...");
+  devlog("> executing buttonApply()...");
   save_options();
   applySettings();
 };
@@ -167,6 +153,7 @@ function buttonApply() {
 // EVENT LISTENERS
 // =============================================================================
 // Event listeners: Page loaded
+// Restore options after options page has loaded
 document.addEventListener('DOMContentLoaded', restore_options);
 
 // Event listeners: Buttons clicked

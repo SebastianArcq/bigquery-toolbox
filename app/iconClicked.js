@@ -6,23 +6,11 @@
  * MIT License
  * Sebastian Arcq
  * 
- * This file now only deals with things happening after the app icon is clicked
+ * This file now only deals with things happening after the app icon is clicked.
+ * The function is called from background.js and is executed in every tab
  */
 
-console.log("executing iconClicked.js...");
-
-// DEV MODE FUNCTIONALITY
-// =============================================================================
-// Set devmode = 1 to display all sorts of console logs
-var devmode = 0;
-
-function devlog(logtext) {
-    if (devmode == 1) {
-		console.log(logtext);
-	} // otherwise: do nothing
-};
-
-devlog('Dev mode ON...');
+console.log(">>> executing iconClicked.js...");
 
 // WRAPPER FUNCTION
 // =============================================================================
@@ -31,7 +19,7 @@ devlog('Dev mode ON...');
     // FUNCTION TO HIDE ELEMENTS
     // =============================================================================
     function hideElements(options) {
-        devlog("calling hideElements()...");
+        devlog("> executing hideElements()...");
 
         // Retrieve options from function parameter
         var hide_explorer_panel = options.get('hide_explorer_panel');

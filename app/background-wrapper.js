@@ -9,10 +9,12 @@
  * This file is just a wrapper for the background js that allows catching errors
  */
 
-console.log("executing background-wrapper.js"); // --> service worker console
+// https://stackoverflow.com/questions/66406672/chrome-extension-mv3-modularize-service-worker-js-file
+
+console.log(">>> executing background-wrapper.js"); // --> service worker console
 
 try {
-    importScripts("background.js");
+    importScripts("f_devlog.js", "background.js");
   } catch (e) {
     console.error(e);
   }

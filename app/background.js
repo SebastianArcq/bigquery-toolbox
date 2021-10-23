@@ -11,26 +11,13 @@
 
 console.log(">>> executing background.js..."); // background.js logs to service worker console!
 
-// DEV MODE FUNCTIONALITY
-// =============================================================================
-// Set devmode = 1 to display all sorts of console logs
-var devmode = 0;
-
-function devlog(logtext) {
-    if (devmode == 1) {
-		console.log(logtext);
-	} // otherwise: do nothing
-};
-
-devlog('Dev mode ON...');
-
 // INSTALLATION (chrome.runtime.onInstalled)
 // =============================================================================
 // Initialize variables after installation 
 // "Fired when the extension is first installed, when the extension is updated 
 // to a new version, and when Chrome is updated to a new version."
 chrome.runtime.onInstalled.addListener(() => {
-	devlog(">>> executing runtime.onInstalled...");
+	devlog("> executing runtime.onInstalled...");
 	
 	// add a badge to the icon (is removed on click, see below)
 	chrome.action.setBadgeText({text: "new"});
@@ -47,7 +34,7 @@ chrome.runtime.onInstalled.addListener(() => {
 // change URL back to "https://console.cloud.google.com/bigquery"
 chrome.tabs.onUpdated.addListener(
 	function(tabId, changeInfo, tab) {
-		devlog(">>> executing tabs.onUpdated...");
+		devlog("> executing tabs.onUpdated...");
 		devlog('changeInfo.status: ' + changeInfo.status);
 
 		// When page has loaded, call main()
@@ -75,7 +62,7 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 // rather passing it as an argument to the callback function. The function call 
 // itself always returns undefined."
 function loadSettings() {
-	devlog(">>> executing loadSettings()...");
+	devlog("> executing loadSettings()...");
 	return new Promise(function(resolve, reject) {
 
 		chrome.storage.sync.get({
@@ -107,7 +94,7 @@ function loadSettings() {
 // ASYNC FUNCTION - LOAD SETTINGS, THEN APPLY SETTINGS
 // =============================================================================
 async function main(){
-	devlog('>>> executing main()...')
+	devlog('> executing main()...')
 	
 	devlog('awaiting loadSettings()...')
 	var settings = await loadSettings();
@@ -136,10 +123,10 @@ async function main(){
 }
 
 
-// Send code to ALL BQ tabs (also in options.js!)
+// Send code to ALL BQ tabs (this function is also in also in options.js!)
 // =============================================================================
 function executeScriptInTabs(scriptName, callbackText) {
-	devlog("executing executeScriptInTab()");
+	devlog("> executing executeScriptInTab()");
 	chrome.tabs.query({
 	  url: "https://console.cloud.google.com/bigquery*"
 	}, function(tabs) {
@@ -164,13 +151,12 @@ function executeScriptInTabs(scriptName, callbackText) {
 // "If lastError has been set and you don't check it within the callback function, then an error will be raised."
 // (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError)
 chrome.action.onClicked.addListener(function (tab) {
-	devlog("executing addListener...");
+	devlog("> executing addListener...");
 	chrome.action.setBadgeText({text: ""}); // remove icon badge text
 	devlog("Tab id: " + tab.id);
 	chrome.scripting.executeScript({
 		target: {tabId: tab.id},
-		files: ['iconClicked.js']
-	//}).catch(() => {}); // this also works
+		files: ['f_devlog.js', 'iconClicked.js']
 	}, function() {
 		let myError = chrome.runtime.lastError; // ignoring the error
 		if (myError) {
