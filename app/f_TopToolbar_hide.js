@@ -17,7 +17,7 @@
 
     // Hide the top toolbar (if it is not hidden yet)
     //console.log('topToolbar.style.display: ' + topToolbar.style.display)
-    if (topToolbar.style.display = 'flex') {
+    if (topToolbar.style.display == 'flex') {
         topToolbar.style.display = 'none'; 
     };
 
