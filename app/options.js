@@ -74,14 +74,18 @@ function applySettings() {
     // Determine the state of the check boxes (for Options-features only)
     chk_hideTopToolbar = document.getElementById('hide_top_toolbar').checked;
     chk_minimizeNewQueryButton = document.getElementById('minimize_new_query_button').checked;
+
+    // Determine the state of the elements (are they currently hidden or shown?)
+
+    
     
     // Log
     devlog('chk_hideTopToolbar: ' + chk_hideTopToolbar);
     devlog('chk_minimizeNewQueryButton: ' + chk_minimizeNewQueryButton);
   
     // apply chk_hideTopToolbar
-    if (chk_hideTopToolbar == true) {
-      executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden.");
+    if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
+      executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden."); // executeScriptInTabs ---> f_executeScriptInTabs.js
 	} else {
 		  executeScriptInTabs("f_TopToolbar_unhide.js", "Top Toolbar shown.");
     };

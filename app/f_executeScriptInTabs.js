@@ -17,7 +17,7 @@
 
 console.log(">>> executing f_executeScriptInTabs.js...");
 
-function executeScriptInTabs(scriptName, callbackText) {
+function executeScriptInTabs(scriptName, callbackText) { // e.g., executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden.");
 	devlog("> executing executeScriptInTab()");
 	chrome.tabs.query({
 	  url: "https://console.cloud.google.com/bigquery*"
