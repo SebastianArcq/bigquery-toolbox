@@ -109,16 +109,16 @@ async function main(){
 	// Apply settings (also see options.js)
 	// hide_top_toolbar
     if (hide_top_toolbar == true) {
-		executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden.");
+		//executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden.");
 	} else {
-		executeScriptInTabs("f_TopToolbar_unhide.js", "Top Toolbar shown.");
+		//executeScriptInTabs("f_TopToolbar_unhide.js", "Top Toolbar shown.");
 	};
 
 	// minimize_new_query_button
     if (minimize_new_query_button == true) {
-		executeScriptInTabs("f_ComposeButton_mini.js", "New Query Button minimized.");
+		//executeScriptInTabs("f_ComposeButton_mini.js", "New Query Button minimized.");
 	} else {
-		executeScriptInTabs("f_ComposeButton_maxi.js", "New Query Button maximized.");
+		//executeScriptInTabs("f_ComposeButton_maxi.js", "New Query Button maximized.");
 	};
 }
 
