@@ -107,19 +107,19 @@ async function main(){
 	devlog('Value for minimize_new_query_button: ' + minimize_new_query_button);
 
 	// Apply settings (also see options.js)
-	// hide_top_toolbar
-    if (hide_top_toolbar == true) {
-		//executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden.");
-	} else {
-		//executeScriptInTabs("f_TopToolbar_unhide.js", "Top Toolbar shown.");
-	};
-
-	// minimize_new_query_button
-    if (minimize_new_query_button == true) {
-		//executeScriptInTabs("f_ComposeButton_mini.js", "New Query Button minimized.");
-	} else {
-		//executeScriptInTabs("f_ComposeButton_maxi.js", "New Query Button maximized.");
-	};
+	// apply chk_hideTopToolbar
+    if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
+		executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar hidden.");
+		} else {
+		executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
+	  };
+	  
+	  // apply chk_minimizeNewQueryButton
+	  if (chk_minimizeNewQueryButton == true) {
+		executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
+	  } else {
+		executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
+	  };
 }
 
 

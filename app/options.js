@@ -85,13 +85,13 @@ function applySettings() {
 	  } else {
       executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
     };
-    /*
+    
     // apply chk_minimizeNewQueryButton
     if (chk_minimizeNewQueryButton == true) {
-      executeScriptInTabs("f_ComposeButton_mini.js", "New Query Button minimized.");
+      executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
     } else {
-      executeScriptInTabs("f_ComposeButton_maxi.js", "New Query Button maximized.");
-    };*/
+      executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
+    };
 };
 
 
