@@ -74,28 +74,24 @@ function applySettings() {
     // Determine the state of the check boxes (for Options-features only)
     chk_hideTopToolbar = document.getElementById('hide_top_toolbar').checked;
     chk_minimizeNewQueryButton = document.getElementById('minimize_new_query_button').checked;
-
-    // Determine the state of the elements (are they currently hidden or shown?)
-
-    
-    
+  
     // Log
     devlog('chk_hideTopToolbar: ' + chk_hideTopToolbar);
     devlog('chk_minimizeNewQueryButton: ' + chk_minimizeNewQueryButton);
   
     // apply chk_hideTopToolbar
     if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
-      executeScriptInTabs("f_TopToolbar_hide.js", "Top Toolbar hidden."); // executeScriptInTabs ---> f_executeScriptInTabs.js
-	} else {
-		  executeScriptInTabs("f_TopToolbar_unhide.js", "Top Toolbar shown.");
+      executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar hidden.");
+	  } else {
+      executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
     };
-
+    
     // apply chk_minimizeNewQueryButton
     if (chk_minimizeNewQueryButton == true) {
-      executeScriptInTabs("f_ComposeButton_mini.js", "New Query Button minimized.");
+      executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
     } else {
-      executeScriptInTabs("f_ComposeButton_maxi.js", "New Query Button maximized.");
-	};
+      executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
+    };
 };
 
 
@@ -118,7 +114,7 @@ function closeOptionsTab() {
 function buttonSaveAndClose() {
   devlog("> executing buttonSaveAndClose()...");
   save_options();
-  applySettings()
+  applySettings();
   // Wait a bit before closing the tab so the "save" message can be seen.
   setTimeout(function() {
       closeOptionsTab();
