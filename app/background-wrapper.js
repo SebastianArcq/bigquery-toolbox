@@ -11,7 +11,7 @@
 
 // https://stackoverflow.com/questions/66406672/chrome-extension-mv3-modularize-service-worker-js-file
 
-console.log(">>> executing background-wrapper.js"); // --> service worker console
+//devlog(">>> executing background-wrapper.js"); // not loaded yet!
 
 try {
     importScripts(
@@ -24,3 +24,5 @@ try {
   } catch (e) {
     console.error(e);
   }
+
+  devlog(">>> executed background-wrapper.js"); // --> service worker console

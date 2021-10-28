@@ -9,7 +9,7 @@
  * This file now only deals with things happen in the option menu
  */
 
-console.log(">>> executing options.js...");
+devlog(">>> executing options.js...");
 
 // Saves options to chrome.storage
 // =============================================================================
@@ -81,16 +81,16 @@ function applySettings() {
   
     // apply chk_hideTopToolbar
     if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
-      executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar hidden.");
+      executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar is hidden.");
 	  } else {
-      executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
+      executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar is not hidden.");
     };
     
     // apply chk_minimizeNewQueryButton
     if (chk_minimizeNewQueryButton == true) {
-      executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
+      executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button is minimized.");
     } else {
-      executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
+      executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button is not minimized.");
     };
 };
 

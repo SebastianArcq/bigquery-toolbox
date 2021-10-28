@@ -15,7 +15,7 @@
 // for options.js --> footer of options.html
 // for background.js and iconClicked.js --> importScripts in background-wrapper.js
 
-console.log(">>> executing f_executeScriptInTabs.js...");
+devlog(">>> executing f_executeScriptInTabs.js...");
 
 // First, make f_devlog.js available in all pages (params are just forwarded to executeScriptInTabs2())
 function executeScriptInTabs(funcName, funcParam, callbackText) {
@@ -44,7 +44,7 @@ function executeScriptInTabs(funcName, funcParam, callbackText) {
             files: scriptArr
           },
           function () {
-            console.log(callbackText)
+            devlog(callbackText)
             executeScriptInTabs2(funcName, funcParam, callbackText) // f_TopToolbar_toggle() is available from options.js because it is loaded in options.html
           }
         )

@@ -9,7 +9,7 @@
  * Function to toggle the "Compose new query" button
  */
 
-console.log(">>> executing f_ComposeButton_toggle.js...");
+devlog(">>> executing f_ComposeButton_toggle.js...");
 
 function f_ComposeButton_toggle(target_state) {
     devlog("> executing f_ComposeButton_toggle()....");

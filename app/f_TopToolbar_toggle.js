@@ -9,7 +9,7 @@
  * Function to toggle the top toolbar
  */
 
-console.log(">>> executing f_TopToolbar_toggle.js...");
+devlog(">>> executing f_TopToolbar_toggle.js...");
 
 function f_TopToolbar_toggle(target_state) {
     

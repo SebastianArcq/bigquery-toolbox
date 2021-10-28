@@ -10,7 +10,7 @@
  * The function is called from background.js and is executed in every tab
  */
 
-console.log(">>> executing iconClicked.js...");
+devlog(">>> executing iconClicked.js...");
 
 // WRAPPER FUNCTION
 // =============================================================================
@@ -78,6 +78,32 @@ console.log(">>> executing iconClicked.js...");
             hide_status = 'not_hidden'; // update hide_status
             devlog("hide_status changed to: " + hide_status);
         };
+
+        // Log status Explorer panel
+        if (hide_explorer_panel == true) {
+            if (sidebar.style.display == 'none') {
+                console.log("Explorer panel hidden.");
+            } else if (sidebar.style.display == 'flex') {
+                console.log("Explorer panel shown.");
+            };
+        } else {
+            console.log("Explorer panel not touched.");
+        }
+
+        // Log status Query results (setTimeout!)
+        if (hide_query_results == true) {
+            setTimeout(function() {
+                if (query_results1.style.height == '100%') {
+                    console.log("Query results hidden.");
+                } else if (query_results1.style.height != '100%') {
+                    console.log("Query results shown.");
+                };
+            }, (400));
+          
+        } else {
+            console.log("Query results not touched.");
+        }
+      
     };
     
     // ASYNC LOAD SETTINGS; CALL HIDE ELEMENTS WHEN SUCCESSFUL

@@ -9,7 +9,7 @@
  * background.js core file
  */
 
-console.log(">>> executing background.js..."); // background.js logs to service worker console!
+devlog(">>> executing background.js..."); // background.js logs to service worker console!
 
 // INSTALLATION (chrome.runtime.onInstalled)
 // =============================================================================
@@ -107,15 +107,14 @@ async function main(){
 	devlog('Value for minimize_new_query_button: ' + minimize_new_query_button);
 
 	// Apply settings (also see options.js)
-	// apply chk_hideTopToolbar
-    if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
+    if (hide_top_toolbar == true) { // if the checkbox says "hide"
 		executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar hidden.");
 		} else {
 		executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
 	  };
 	  
 	  // apply chk_minimizeNewQueryButton
-	  if (chk_minimizeNewQueryButton == true) {
+	  if (minimize_new_query_button == true) {
 		executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
 	  } else {
 		executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
