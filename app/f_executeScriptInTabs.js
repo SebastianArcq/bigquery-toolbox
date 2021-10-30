@@ -28,7 +28,7 @@ function executeScriptInTabs(funcName, funcParam, callbackText) {
 
 
   // Define scripts that should be sent to page
-  var scriptArr = ['f_devlog.js']; // could add more scripts here, but not necessary
+  var scriptArr = ['f_devlog.js', 'f_addStyle.js']; // could add more scripts here, but not necessary
   devlog('typeof(scriptArr): ' + typeof(scriptArr)); // type: object
 
   chrome.tabs.query(

@@ -11,13 +11,16 @@
 
 // https://stackoverflow.com/questions/66406672/chrome-extension-mv3-modularize-service-worker-js-file
 
-//devlog(">>> executing background-wrapper.js"); // not loaded yet!
+//devlog(">>> executing background-wrapper.js"); // not loaded yet! Put below.
 
+// also see options.html and f_executeScriptInTabs.js
 try {
-    importScripts(
+    importScripts( 
       "f_devlog.js", 
       "f_TopToolbar_toggle.js", 
-      "f_ComposeButton_toggle.js", 
+      "f_ComposeButton_toggle.js",
+      "f_TabLayout_toggle.js",
+      "f_addStyle.js",
       "f_executeScriptInTabs.js", 
       "background.js"
     );

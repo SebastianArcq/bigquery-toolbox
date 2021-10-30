@@ -16,10 +16,6 @@ function f_TopToolbar_toggle(target_state) {
     devlog("> executing f_TopToolbar_toggle()....");
 
     const topToolbar = document.querySelectorAll("#default-action-bar > .mat-toolbar")[0];
-    devlog('topToolbar: ' + topToolbar);
-    devlog('topToolbar.style: ' + topToolbar.style);
-    devlog('topToolbar.style.display: ' + topToolbar.style.display);
-    devlog('target_state: ' + target_state);
 
     // Toggle the top toolbar
     devlog('before: topToolbar.style.display: ' + topToolbar.style.display)

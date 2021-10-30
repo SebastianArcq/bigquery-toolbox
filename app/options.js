@@ -22,12 +22,14 @@ function save_options() {
   var hide_query_results = document.getElementById('hide_query_results').checked;
   var hide_top_toolbar = document.getElementById('hide_top_toolbar').checked;
   var minimize_new_query_button = document.getElementById('minimize_new_query_button').checked;
+  var tabs_multirow = document.getElementById('tabs_multirow').checked;
 
   chrome.storage.sync.set({
     hide_explorer_panel: hide_explorer_panel,
     hide_top_toolbar: hide_top_toolbar,
     hide_query_results: hide_query_results,
-    minimize_new_query_button: minimize_new_query_button
+    minimize_new_query_button: minimize_new_query_button,
+    tabs_multirow: tabs_multirow
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -49,13 +51,15 @@ function restore_options() {
             hide_explorer_panel: true,
             hide_top_toolbar: false,
             hide_query_results: false,
-            minimize_new_query_button: false
+            minimize_new_query_button: false,
+            tabs_multirow: false
         },
         function(items) {
             document.getElementById('hide_explorer_panel').checked = items.hide_explorer_panel;
             document.getElementById('hide_top_toolbar').checked = items.hide_top_toolbar;
             document.getElementById('hide_query_results').checked = items.hide_query_results;
             document.getElementById('minimize_new_query_button').checked = items.minimize_new_query_button;
+            document.getElementById('tabs_multirow').checked = items.minimize_new_query_button;
         });
 };
 
@@ -65,8 +69,10 @@ function restore_options() {
 // There are two types of features:
 // 1. Icon-click-features: Are executed when clicking the icon. Those just need to be saved.
 //    --> hide_explorer_panel, hide_query_results
+//    --> these are done in iconClicked.js
 // 2. Options-features: Are set in the Option menu. Those need to be applied when clicking the Apply / Save buttons
-//    --> hide_top_toolbar, minimize_new_query_button
+//    --> hide_top_toolbar, minimize_new_query_button, tabs_multirow
+//    --> these are done here
 
 function applySettings() {
     devlog("> executing applySettings()...");
@@ -74,10 +80,12 @@ function applySettings() {
     // Determine the state of the check boxes (for Options-features only)
     chk_hideTopToolbar = document.getElementById('hide_top_toolbar').checked;
     chk_minimizeNewQueryButton = document.getElementById('minimize_new_query_button').checked;
+    chk_tabs_multirow = document.getElementById('tabs_multirow').checked;
   
     // Log
     devlog('chk_hideTopToolbar: ' + chk_hideTopToolbar);
     devlog('chk_minimizeNewQueryButton: ' + chk_minimizeNewQueryButton);
+    devlog('chk_tabs_multirow: ' + chk_tabs_multirow);
   
     // apply chk_hideTopToolbar
     if (chk_hideTopToolbar == true) { // if the checkbox says "hide"
@@ -92,11 +100,18 @@ function applySettings() {
     } else {
       executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button is not minimized.");
     };
+
+    // apply chk_tabs_multirow
+    if (chk_tabs_multirow == true) {
+      executeScriptInTabs(f_TabLayout_toggle, "newTab", "New Tab Layout is activated.");
+    } else {
+      executeScriptInTabs(f_TabLayout_toggle, "oldTab", "New Tab Layout is not activated.");
+    };
 };
 
 
 // =============================================================================
-// BUTTONS --> FUNCTIONS
+// ASSIGN BUTTONS --> FUNCTIONS
 // =============================================================================
 
 // Function to close the current options tab

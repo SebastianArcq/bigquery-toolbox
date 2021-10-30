@@ -68,18 +68,21 @@ function loadSettings() {
 		chrome.storage.sync.get({
 				// Default fallback values (if undefined)
 				hide_top_toolbar: false, 
-				minimize_new_query_button: false
+				minimize_new_query_button: false,
+				tabs_multirow: false
 			},
 			function(items) {
 
 				// Log
 				devlog('Value for hide_top_toolbar: ' + items.hide_top_toolbar);
 				devlog('Value for minimize_new_query_button: ' + items.minimize_new_query_button);
+				devlog('Value for tabs_multirow: ' + items.tabs_multirow);
 
 				// Add all settings to a Map object
 				var settingsArray = new Map()
 				settingsArray.set('hide_top_toolbar', items.hide_top_toolbar);
 				settingsArray.set('minimize_new_query_button', items.minimize_new_query_button);
+				settingsArray.set('tabs_multirow', items.tabs_multirow);
 
 				// Log
 				devlog("settingsArray:");
@@ -102,9 +105,11 @@ async function main(){
 
 	var hide_top_toolbar = settings.get('hide_top_toolbar');
 	var minimize_new_query_button = settings.get('minimize_new_query_button');
+	var tabs_multirow = settings.get('tabs_multirow');
 
 	devlog('Value for hide_top_toolbar: ' + hide_top_toolbar);
 	devlog('Value for minimize_new_query_button: ' + minimize_new_query_button);
+	devlog('Value for tabs_multirow: ' + tabs_multirow);
 
 	// Apply settings (also see options.js)
     if (hide_top_toolbar == true) { // if the checkbox says "hide"
@@ -112,12 +117,17 @@ async function main(){
 		} else {
 		executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
 	  };
-	  
-	  // apply chk_minimizeNewQueryButton
+
 	  if (minimize_new_query_button == true) {
 		executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
 	  } else {
 		executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
+	  };
+
+	  if (tabs_multirow == true) {
+		executeScriptInTabs(f_TabLayout_toggle, "newTab", "New Tab Layout is activated.");
+	  } else {
+		executeScriptInTabs(f_TabLayout_toggle, "oldTab", "New Tab Layout is not activated.");
 	  };
 }
 
