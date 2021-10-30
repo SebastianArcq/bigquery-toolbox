@@ -8,6 +8,7 @@ The BigQuery Toolbox is a lightweight Chrome browser extension made for users of
 
 * Toggle the "Explorer" side panel with the click of a button
 * Toggle the "Query Results" with the click of a button
+* Show (smaller, redesigned) query tabs in multiple rows.
 * Hide the top toolbar ("Features & Info" / "Shortcut" / "Disable Editor Tabs")
 * Minimize the "Compose new query" button
 
