@@ -15,6 +15,9 @@ devlog(">>> executing f_TabLayout_toggle.js...");
 
 function f_TabLayout_toggle(target_state) {
 
+    devlog("> executing f_TabLayout_toggle()....");
+    devlog('target_state: ' + target_state);
+
     // Style for small tabs
     var bqtoolbox_smalltabs_css = `
     bq-tab-panel .cfc-panel-sub-header .mat-tab-link {
@@ -41,16 +44,20 @@ function f_TabLayout_toggle(target_state) {
         display:block;
     }
     `;
-  
-    devlog("> executing f_TabLayout_toggle()....");
-    devlog('target_state: ' + target_state);
 
-    // Add / remove the style (funcs ---> f_addStyle.js)
+    // HTML elements
+    var existingElement = document.querySelectorAll("bq-tab-container bq-tab-head > div > div > span")[0]; // space gets ANY child, ">" gets DIRECT child
+    var newElement = '<span id="thisIsMyId" class="cfc-truncated-text-inline ng-star-inserted"> 1 </span>'; // including 'thisIsMyId' to remove it later
+    var id = "thisIsMyId"; // this must match the id above!
+
+    // Add / remove the style and HTML elements (---> f_addStyle.js, f_insertHtml.js)
     if (target_state=="newTab") {
         addStyle(bqtoolbox_smalltabs_css, 'bqtoolbox_smalltabs');
         addStyle(bqtoolbox_tabrows_css, 'bqtoolbox_tabrows');
+        insertHtmlAfter(existingElement, newElement, id);
     } else if (target_state=="oldTab") {
         removeStyle(".bqtoolbox_smalltabs");
         removeStyle(".bqtoolbox_tabrows");
+        removeHtml(id);
     };
 };

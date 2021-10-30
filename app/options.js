@@ -59,7 +59,7 @@ function restore_options() {
             document.getElementById('hide_top_toolbar').checked = items.hide_top_toolbar;
             document.getElementById('hide_query_results').checked = items.hide_query_results;
             document.getElementById('minimize_new_query_button').checked = items.minimize_new_query_button;
-            document.getElementById('tabs_multirow').checked = items.minimize_new_query_button;
+            document.getElementById('tabs_multirow').checked = items.tabs_multirow;
         });
 };
 
