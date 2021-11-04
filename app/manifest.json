@@ -35,8 +35,8 @@
       },
 
     "commands": {
-		"toggle-qjs": {
-			"suggested_key": { "default": "Alt+Shift+Y", "mac": "Command+Shift+Y" },
+		"_execute_action": {
+			"suggested_key": "Ctrl+Shift+L",
 			"description": "Toggle BigQuery Toolbox"
 		}
   	}
