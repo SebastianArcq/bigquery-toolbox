@@ -15,12 +15,26 @@ The BigQuery Toolbox is a lightweight Chrome browser extension made for users of
 ## How to install
 Simply install from the Chrome Web Store at https://chrome.google.com/webstore/detail/bigquery-toolbox/gogipkdhiiopcbfakdagfkinjoecfoam.
 
+## Pin to toolbar
+After installing what you want to do first is to "pin" the BigQuery Toolbox icon to your extension toolbar in Chrome for easier access.
+
+To do that, click the "Extensions" button in the top-right of your browser, next to your profile picture (the button that looks like a puzzle piece). From the dropdown list, find "BigQuery Toolbox" and click the pin so it turns blue. Boom.
+
 ## How to use
-While in BigQuery, simply click the BigQuery Toolbox button to toggle the Explorer column. Go to the options to also make that button hide the query results.
+While in BigQuery, simply click the BigQuery Toolbox button to toggle the Explorer column. 
 
-In the options you can also choose to hide the top toolbar and to minimize the "Compose new query" button.
+## Advanced Configuration
+For more advances features, right-click the extension icon and click on "Options".
 
-For easy access, make sure to pin the extension icon to you Chrome menu by clicking on the puzzle icon next to your address bar and "pin".
+Here you can do two things.
+
+First, you can set what left-clicking the extension button does. By default it just toggles the Explorer column. If you tick "Hide Query Results", it will also hide the query results every time you click the icon.
+
+Second, you can further improve the BigQuery UI by checking the following options
+
+- Hide Top Toolbar: This hides the rather useless top toolbar that says "Features & Info".
+- Minimize the 'Create New Query' button: Removes the "Create new query" from the button and just leaves the large "[+]" icon
+- Redesigned multi-row query tabs: Instead of having a side-scrolling query tab bar, enabling this feature shows tabs in multiple rows, while also reducing their size
 
 ## Contributing
 Pull requests are welcome.
