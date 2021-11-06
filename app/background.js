@@ -13,7 +13,6 @@ devlog(">>> executing background.js..."); // background.js logs to service worke
 
 // INSTALLATION (chrome.runtime.onInstalled)
 // =============================================================================
-// Initialize variables after installation 
 // "Fired when the extension is first installed, when the extension is updated 
 // to a new version, and when Chrome is updated to a new version."
 chrome.runtime.onInstalled.addListener(() => {
@@ -22,6 +21,12 @@ chrome.runtime.onInstalled.addListener(() => {
 	// add a badge to the icon (is removed on click, see below)
 	chrome.action.setBadgeText({text: "new"});
   	chrome.action.setBadgeBackgroundColor({color: "#FF2923"});
+
+	// Show popup after install
+	chrome.tabs.create({
+		url: 'welcome.html'
+	});
+
 });
 
 
