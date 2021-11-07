@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "BigQuery Toolbox",
     "description": "Improves the BigQuery UI. Toggle the BQ Explorer side panel, redesigned multi-row tabs, minimize the 'Create New Query' button,...",
-    "version": "2.3.1",
+    "version": "2.4.0",
     "homepage_url" : "https://github.com/SebastianArcq/bigquery-toolbox/",
     
     "icons": { 
