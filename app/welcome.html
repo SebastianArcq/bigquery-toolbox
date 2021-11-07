@@ -14,14 +14,22 @@
 <head>
     <title>Welcome!</title>
     <style>
+        body { 
+            font-size: 18px; 
+        } 
+
         li.checkbox {
             list-style: none;
         }
 
-        .topright {
+        .arrow_topright {
             position: absolute;
             top: 30px;
             right: 70px;
+        }
+
+        img.floatleft {
+            float: left;
         }
     </style>
 </head>
@@ -29,12 +37,13 @@
 <body>
     
     <div>
-        <img src="img/arrow.png" class="topright" />
+        <img src="img/arrow.png" class="arrow_topright" />
         <h1>Welcome to BigQuery Toolbox!</h1>
         
         <p>Thank you very much for installing BigQuery Toolbox! Here's a few hints for working with BigQuery Toolbox:</p>
 
         <h2>Pin to toolbar</h2>
+        <img src="img/pin_ext.png" class="float_left"></img>
         <p>To access BigQuery Toolbox quickly you might want to "pin" the BigQuery Toolbox icon to your extension toolbar in Chrome for easier access.</p>
         <p>To do that, click the "Extensions" button in the top-right corner, next to your profile picture (the button that looks like a puzzle piece). 
         From the dropdown list, find "BigQuery Toolbox" and click the pin so it turns blue.</p>
@@ -45,8 +54,10 @@
 
         <h2>Advanced Configuration</h2>
         <p>For more advances features, right-click the extension icon and click on "Options" or go <a href="options.html">here</a></p>
+        <img src="img/ext_menu.png" class="float_left"></img>
         <p>Here you can do two things.</p>
         <p>First, you can set what left-clicking the extension button does. By default it just toggles the Explorer column. If you tick "Hide Query Results", it will also hide the query results every time you click the icon.</p>
+        <img src="img/ext_options.png" class="float_left"></img>
         <p>Second, you can further improve the BigQuery UI by checking the following options:</p>
         <ul>
             <li>Hide Top Toolbar: This hides the rather useless top toolbar that says "Features & Info".</li>
