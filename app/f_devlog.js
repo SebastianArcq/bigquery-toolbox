@@ -18,7 +18,7 @@
 // Turn devmode on / off
 // Set devmode = 1 to display all sorts of console logs
 
-var devmode = 1;
+var devmode = 0;
 
 devlog (">>> executing f_devlog.js...");
 

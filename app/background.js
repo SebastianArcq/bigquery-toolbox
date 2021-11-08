@@ -15,19 +15,26 @@ devlog(">>> executing background.js..."); // background.js logs to service worke
 // =============================================================================
 // "Fired when the extension is first installed, when the extension is updated 
 // to a new version, and when Chrome is updated to a new version."
-chrome.runtime.onInstalled.addListener(() => {
-	devlog("> executing runtime.onInstalled...");
-	
-	// add a badge to the icon (is removed on click, see below)
-	chrome.action.setBadgeText({text: "new"});
-  	chrome.action.setBadgeBackgroundColor({color: "#FF2923"});
+chrome.runtime.onInstalled.addListener(
+	function(details) {
+		devlog("> executing runtime.onInstalled...");	
+		devlog("details.reason: " + details.reason);
 
-	// Show popup after install
-	chrome.tabs.create({
-		url: 'welcome.html'
-	});
+		// After install (not after update):
+		if (details.reason == "install") { 
+			
+			// Show 'Welcome' popup
+			chrome.tabs.create({
+				url: 'welcome.html'
+			});
 
-});
+			// add a badge to the icon (is removed on click, see below)
+			chrome.action.setBadgeText({text: "new"});
+			chrome.action.setBadgeBackgroundColor({color: "#FF2923"});
+
+		};
+	}
+);
 
 
 // TAB UPDATED (chrome.tabs.onUpdated)
