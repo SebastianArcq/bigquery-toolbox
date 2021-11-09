@@ -36,6 +36,16 @@ Second, you can further improve the BigQuery UI by checking the following option
 - Minimize the 'Create New Query' button: Removes the "Create new query" from the button and just leaves the large "[+]" icon
 - Redesigned multi-row query tabs: Instead of having a side-scrolling query tab bar, enabling this feature shows tabs in multiple rows, while also reducing their size
 
+## FAQ
+<i>Q: I use Firefox, why is there no Firefox version of the BigQuery Toolbox?</i>
+A: There will be, but it'll be a short while - until Firefox implements Chrome’s Manifest V3 extension spec, which will <a href="https://blog.mozilla.org/addons/2021/05/27/manifest-v3-update/">hopefully happen in early 2022</a>.
+
+<i>Q: Why is [your preferred feature here] not part of the Toolbox?</i>
+A: BigQuery Toolbox is hobby project. Most likely I didn't have the time yet. That said, feel free to drop me a line at chromedev@arcq.de.
+
+<i>Q: I love this extension so much, can I buy you a coffee?</i>
+A: What a great question. Sure you can, over at <a href="https://ko-fi.com/sebastianarcq">ko-fi.com</a>.
+
 ## Contributing
 Pull requests are welcome.
 
