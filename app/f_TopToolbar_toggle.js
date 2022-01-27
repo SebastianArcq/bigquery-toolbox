@@ -15,7 +15,7 @@ function f_TopToolbar_toggle(target_state) {
     
     devlog("> executing f_TopToolbar_toggle()....");
 
-    const topToolbar = document.querySelectorAll("#default-action-bar > .mat-toolbar")[0];
+    const topToolbar = document.querySelectorAll("#bq-workspace-top-action-bar > .mat-toolbar")[0];
 
     // Toggle the top toolbar
     devlog('before: topToolbar.style.display: ' + topToolbar.style.display)
