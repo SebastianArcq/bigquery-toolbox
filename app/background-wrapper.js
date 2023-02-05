@@ -17,8 +17,8 @@
 try {
     importScripts( 
       "f_devlog.js", 
-      "f_TopToolbar_toggle.js", 
-      "f_ComposeButton_toggle.js",
+      //"f_TopToolbar_toggle.js", 
+      //"f_ComposeButton_toggle.js",
       "f_TabLayout_toggle.js",
       "f_addStyle.js",
       "f_executeScriptInTabs.js", 

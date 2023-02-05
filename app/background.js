@@ -124,23 +124,25 @@ async function main(){
 	devlog('Value for tabs_multirow: ' + tabs_multirow);
 
 	// Apply settings (also see options.js)
+    /*
     if (hide_top_toolbar == true) { // if the checkbox says "hide"
 		executeScriptInTabs(f_TopToolbar_toggle, "hidden", "Top Toolbar hidden.");
 		} else {
 		executeScriptInTabs(f_TopToolbar_toggle, "shown", "Top Toolbar shown.");
-	  };
+	};*/
 
-	  if (minimize_new_query_button == true) {
+    /*
+	if (minimize_new_query_button == true) {
 		executeScriptInTabs(f_ComposeButton_toggle, "mini", "New Query Button minimized.");
 	  } else {
 		executeScriptInTabs(f_ComposeButton_toggle, "maxi", "New Query Button maximized.");
-	  };
+	};*/
 
-	  if (tabs_multirow == true) {
+	if (tabs_multirow == true) {
 		executeScriptInTabs(f_TabLayout_toggle, "newTab", "New Tab Layout is activated.");
 	  } else {
 		executeScriptInTabs(f_TabLayout_toggle, "oldTab", "New Tab Layout is not activated.");
-	  };
+	};
 }
 
 
