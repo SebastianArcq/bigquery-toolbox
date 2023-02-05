@@ -70,16 +70,14 @@ A: What a great question. Sure you can, over at <a href="https://ko-fi.com/sebas
 #### JavaScript Files
 - background-wrapper.js: a wrapper for background.js; allows catching errors.
 - background.js: core file.
+- iconClicked.js: deals with things happening after the icon is clicked.
+- options.js: deals with things that happen in the option menu.
 - f_*.js: Functions that are called from elsewhere.
-  - f_ComposeButton_toggle.js
   - f_TabLayout_toggle.js
-  - f_TopToolbar_toggle.js
   - f_addStyle.js
   - f_devlog.js
   - f_executeScriptInTabs.js
   - f_insertHtml.js
-- iconClicked.js: deals with things happening after the app icon is clicked.
-- options.js: deals with things that happen in the option menu.
 
 #### Images
 - img/*: images used on html pages, e.g. welcome.html
