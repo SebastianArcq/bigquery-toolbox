@@ -19,6 +19,8 @@ function save_options() {
   devlog("> executing save_options()...");
   
   var hide_explorer_panel = document.getElementById('hide_explorer_panel').checked;
+  var hide_nav_menu = document.getElementById('hide_nav_menu').checked;
+  var hide_top_bar = document.getElementById('hide_top_bar').checked;
   var hide_query_results = document.getElementById('hide_query_results').checked;
   //var hide_top_toolbar = document.getElementById('hide_top_toolbar').checked; // removed after BQ redesign
   //var minimize_new_query_button = document.getElementById('minimize_new_query_button').checked; // removed after BQ redesign
@@ -26,6 +28,8 @@ function save_options() {
 
   chrome.storage.sync.set({
     hide_explorer_panel: hide_explorer_panel,
+    hide_nav_menu: hide_nav_menu,
+    hide_top_bar: hide_top_bar,
     hide_query_results: hide_query_results,
     //hide_top_toolbar: hide_top_toolbar,
     //minimize_new_query_button: minimize_new_query_button,
@@ -48,14 +52,18 @@ function restore_options() {
 
     chrome.storage.sync.get({
             // Default fallback values (if undefined)
-            hide_explorer_panel: true,
+            hide_explorer_panel: false,
+            hide_nav_menu: true,
+            hide_top_bar: true,
             hide_query_results: false,
             //hide_top_toolbar: false,            
             //minimize_new_query_button: false,
             tabs_multirow: false
         },
         function(items) {
+            document.getElementById('hide_nav_menu').checked = items.hide_nav_menu;
             document.getElementById('hide_explorer_panel').checked = items.hide_explorer_panel;
+            document.getElementById('hide_top_bar').checked = items.hide_top_bar;
             document.getElementById('hide_query_results').checked = items.hide_query_results;
             //document.getElementById('hide_top_toolbar').checked = items.hide_top_toolbar;
             //document.getElementById('minimize_new_query_button').checked = items.minimize_new_query_button;
@@ -68,7 +76,7 @@ function restore_options() {
 // =============================================================================
 // There are two types of features:
 // 1. Icon-click-features: Are executed when clicking the icon. Those just need to be saved.
-//    --> hide_explorer_panel, hide_query_results
+//    --> hide_explorer_panel, hide_query_results, hide_nav_menu, hide_top_bar
 //    --> these are done in iconClicked.js
 // 2. Options-features: Are set in the Option menu. Those need to be applied when clicking the Apply / Save buttons
 //    --> hide_top_toolbar, minimize_new_query_button, tabs_multirow

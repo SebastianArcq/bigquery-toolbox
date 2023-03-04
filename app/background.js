@@ -79,21 +79,21 @@ function loadSettings() {
 
 		chrome.storage.sync.get({
 				// Default fallback values (if undefined)
-				hide_top_toolbar: false, 
-				minimize_new_query_button: false,
+				// hide_top_toolbar: false, // removed
+				// minimize_new_query_button: false, // removed
 				tabs_multirow: false
 			},
 			function(items) {
 
 				// Log
-				devlog('Value for hide_top_toolbar: ' + items.hide_top_toolbar);
-				devlog('Value for minimize_new_query_button: ' + items.minimize_new_query_button);
+				// devlog('Value for hide_top_toolbar: ' + items.hide_top_toolbar); // removed
+				// devlog('Value for minimize_new_query_button: ' + items.minimize_new_query_button); // removed
 				devlog('Value for tabs_multirow: ' + items.tabs_multirow);
 
 				// Add all settings to a Map object
 				var settingsArray = new Map()
-				settingsArray.set('hide_top_toolbar', items.hide_top_toolbar);
-				settingsArray.set('minimize_new_query_button', items.minimize_new_query_button);
+				// settingsArray.set('hide_top_toolbar', items.hide_top_toolbar); // removed
+				// settingsArray.set('minimize_new_query_button', items.minimize_new_query_button); // removed
 				settingsArray.set('tabs_multirow', items.tabs_multirow);
 
 				// Log
@@ -115,12 +115,12 @@ async function main(){
 	var settings = await loadSettings();
 	devlog('Settings loaded.')
 
-	var hide_top_toolbar = settings.get('hide_top_toolbar');
-	var minimize_new_query_button = settings.get('minimize_new_query_button');
+	// var hide_top_toolbar = settings.get('hide_top_toolbar'); // removed
+	// var minimize_new_query_button = settings.get('minimize_new_query_button'); // // removed
 	var tabs_multirow = settings.get('tabs_multirow');
 
-	devlog('Value for hide_top_toolbar: ' + hide_top_toolbar);
-	devlog('Value for minimize_new_query_button: ' + minimize_new_query_button);
+	// devlog('Value for hide_top_toolbar: ' + hide_top_toolbar); // removed
+	// devlog('Value for minimize_new_query_button: ' + minimize_new_query_button); // removed
 	devlog('Value for tabs_multirow: ' + tabs_multirow);
 
 	// Apply settings (also see options.js)
@@ -170,10 +170,4 @@ chrome.action.onClicked.addListener(function (tab) {
 		};
 	}); 
 });
-
-
-
-
-
-
 // EOF

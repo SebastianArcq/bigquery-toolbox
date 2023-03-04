@@ -6,7 +6,7 @@
  * MIT License
  * Sebastian Arcq
  * 
- * This file is just a wrapper for the background js that allows catching errors
+ * This file is just a wrapper for background.js that allows catching errors
  */
 
 // https://stackoverflow.com/questions/66406672/chrome-extension-mv3-modularize-service-worker-js-file

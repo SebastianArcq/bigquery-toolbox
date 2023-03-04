@@ -54,10 +54,10 @@ A: BigQuery Toolbox is hobby project. Most likely I didn't have the time yet. Th
 A: What a great question. Sure you can, over at <a href="https://ko-fi.com/sebastianarcq">ko-fi.com</a>.
 
 
-## File Structure
+## Files & Folder Structure
 ### Root
 - Licence.md: Licence text
-- README.md: this file; show up on https://github.com/SebastianArcq/bigquery-toolbox
+- README.md: this file; shows up on https://github.com/SebastianArcq/bigquery-toolbox
 
 ### Folder "app"
 #### JSON Files
