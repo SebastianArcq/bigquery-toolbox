@@ -7,12 +7,10 @@ Github: https://github.com/SebastianArcq/bigquery-toolbox/
 ## About BigQuery Toolbox
 The BigQuery Toolbox is a lightweight Chrome browser extension made for users of Google BigQuery. The BigQuery Toolbox comes with a set of features designed to make your live in BigQuery a lot easier. Top features include:
 
-* Toggle the "Explorer" side panel with the click of a button
+* Toggle the "Navigation menu" side panel with the click of a button
+* Toggle the "Top bar" side panel with the click of a button
 * Toggle the "Query Results" with the click of a button
 * Show (smaller, redesigned) query tabs in multiple rows.
-* Hide the top toolbar ("Features & Info" / "Shortcut" / "Disable Editor Tabs")
-* Minimize the "Compose new query" button
-
 
 ## How to install
 Simply install from the Chrome Web Store at https://chrome.google.com/webstore/detail/bigquery-toolbox/gogipkdhiiopcbfakdagfkinjoecfoam.
@@ -26,7 +24,7 @@ To do that, click the "Extensions" button in the top-right of your browser, next
 
 ## How to use
 ### Basics
-While in BigQuery, simply click the BigQuery Toolbox button to toggle the Explorer column. 
+While in BigQuery, simply click the BigQuery Toolbox button to toggle the Navigation menu. 
 
 
 ## Advanced Options
@@ -34,18 +32,18 @@ For more advances features, right-click the extension icon and click on "Options
 
 Here you can do two things.
 
-First, you can set what left-clicking the extension button does. By default it just toggles the Explorer column. If you tick "Hide Query Results", it will also hide the query results every time you click the icon.
+First, you can set what left-clicking the extension button does. By default it just toggles the Navigation Menu.
 
-Second, you can further improve the BigQuery UI by checking the following options
+If you tick "Hide Top Bar", "Hide Explorer Panel", or "Hide Query Results", it will also do just that every time you click the icon.
 
-- Hide Top Toolbar: This hides the rather useless top toolbar that says "Features & Info".
-- Minimize the 'Create New Query' button: Removes the "Create new query" from the button and just leaves the large "[+]" icon
+Second, you can further improve the BigQuery UI by checking the following option:
+
 - Redesigned multi-row query tabs: Instead of having a side-scrolling query tab bar, enabling this feature shows tabs in multiple rows, while also reducing their size
 
 
 ## FAQ
 <i>Q: I use Firefox, why is there no Firefox version of the BigQuery Toolbox?</i>\
-A: There will be, but it'll be a short while - until Firefox implements Chrome’s Manifest V3 extension spec, which will <a href="https://blog.mozilla.org/addons/2021/05/27/manifest-v3-update/">hopefully happen some time in 2022</a>.
+A: There will be, but it'll be a short while. Now that Firefox <a href="https://blog.mozilla.org/addons/2022/11/17/manifest-v3-signing-available-november-21-on-firefox-nightly/">has implemented Chrome’s Manifest V3 extension spec</a> I will hopefully get around to do this some time soon. No promises.</a>.
 
 <i>Q: Why is [your preferred feature here] not part of the Toolbox?</i>\
 A: BigQuery Toolbox is hobby project. Most likely I didn't have the time yet. That said, feel free to drop me a line at chromedev@arcq.de.
@@ -65,7 +63,7 @@ A: What a great question. Sure you can, over at <a href="https://ko-fi.com/sebas
 
 #### HTML files
 - options.html: HTML file for options menu (right click on extension icon > options)
-- welcome.html: Info page shown after install 🚧 <i>also after upgrade?</i>
+- welcome.html: Info page shown after install and after an upgrade
 
 #### JavaScript Files
 - background-wrapper.js: a wrapper for background.js; allows catching errors.

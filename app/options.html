@@ -15,6 +15,32 @@
         li.checkbox {
             list-style: none;
         }
+
+        /* Entire gallery */
+        .gallery {
+            position: relative;
+        }
+            /* Smaller divs with two img tags each */
+            .gallery div {
+                padding: 2px;
+                width: 220px;
+            }
+                /* First image in each smaller div */
+                .gallery div img:nth-child(2) {
+                    width: 200px;
+                }
+                /* Second image in each smaller div */
+                .gallery div img:nth-child(3) {
+                    position: absolute;
+                    top: 100px;
+                    left: 0px;
+                    z-index: 10;
+                    visibility: hidden;
+                }
+                /* Hover on any smaller div */
+                .gallery div:hover img:nth-child(3) {
+                    visibility: visible;
+                }
     </style>
 </head>
 
@@ -23,16 +49,41 @@
     <div>
         <h1>BigQuery Toolbox: Settings</h1>
         <p>This extension can hide not only the explorer panel, has a few more tricks up the sleeve:</p>
-        <h2>What should happen when you click the icon:</h2>
-        <p style="font-style: italic;">You can also use the hotkey Cmd+Shift+L (Mac) / Ctrl+Shift+L (Other)</p>
+        <h2 style="margin-top: 40px;">What should happen when you click the icon:</h2>
+        <p style="font-style: italic;">Instead of clicking the item, you can also use the hotkey Cmd+Shift+L (Mac) / Ctrl+Shift+L (Other)</p>
         <ul>
             <li class="checkbox"><label><input type="checkbox" id="hide_nav_menu">Hide Navigation Menu</label></li>
             <li class="checkbox"><label><input type="checkbox" id="hide_top_bar">Hide Top Bar</label></li>
             <li class="checkbox"><label><input type="checkbox" id="hide_explorer_panel">Hide Explorer Panel</label></li>
             <li class="checkbox"><label><input type="checkbox" id="hide_query_results">Hide Query Results</label></li>
         </ul>
+
+        <div style="margin-top: 10px; clear: both;">
+            <div class="gallery">
+                <div style="float:left; text-align: center;">
+                    <p style="font-weight: bold;">Navigation Menu</p>
+                    <img src="img/whatis_navigation_menu.png" alt="">
+                    <img src="img/whatis_navigation_menu.png" alt="">
+                </div>
+                <div style="float:left; text-align: center;">
+                    <p style="font-weight: bold;">Top Bar</p>
+                    <img src="img/whatis_top_bar.png" alt="">
+                    <img src="img/whatis_top_bar.png" alt="">
+                </div>
+                <div style="float:left; text-align: center;">
+                    <p style="font-weight: bold;">Explorer Panel</p>
+                    <img src="img/whatis_explorer.png" alt="">
+                    <img src="img/whatis_explorer.png" alt="">
+                </div>
+                <div style="float:left; text-align: center;">
+                    <p style="font-weight: bold;">Query results</p>
+                    <img src="img/whatis_query_results.png" alt="">
+                    <img src="img/whatis_query_results.png" alt="">
+                </div>
+            </div>
+        </div>
         
-        <h2 style="margin-top: 30px;">Improve your BigQuery UI:</h2>
+        <h2 style="padding-top: 40px; clear: both;">Improve your BigQuery UI:</h2>
         <ul>
             <!-- <li class="checkbox"><label><input type="checkbox" id="hide_top_toolbar">Hide Top Toolbar ("Features & Info")</label></li>--><!-- this toolbar no longer exists -->
             <!-- <li class="checkbox"><label><input type="checkbox" id="minimize_new_query_button">Minimize the 'Compose New Query' button (<span style="font-style: italic;">only when editor tabs are enabled</span>)</label></li>--> <!-- there no longer is a huge "Compose new query" button" -->
@@ -47,8 +98,8 @@
         <button id="save_button">Save & Close</button>
     </div>
 
-    <div>
-        <h1 style="margin-top:40px;">About</h1>
+    <div style="clear: both; padding-top:40px;">
+        <h1>About</h1>
         <p>Visit <a href="https://github.com/SebastianArcq/bigquery-toolbox/">GitHub</a> or <a href="https://arcq.de/bigquery-toolbox/">arcq.de</a> to learn more about BigQuery Toolbox.</p>
         <p>If you like BigQuery Toolbox, <a href="https://ko-fi.com/sebastianarcq">buy me coffee</a>. Much appreciated!</p>      
     </div>
