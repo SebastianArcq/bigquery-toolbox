@@ -20,24 +20,24 @@
         .gallery {
             position: relative;
         }
-            /* Smaller divs with two img tags each */
+            /* Smaller divs with two img tags each: One for the thumbnail, one for the full image */
             .gallery div {
                 padding: 2px;
                 width: 220px;
             }
-                /* First image in each smaller div */
+                /* First image in each smaller div: Thumbnail */
                 .gallery div img:nth-child(2) {
                     width: 200px;
                 }
-                /* Second image in each smaller div */
+                /* Second image in each smaller div: Full image */
                 .gallery div img:nth-child(3) {
                     position: absolute;
                     top: 100px;
-                    left: 0px;
+                    left: 100px;
                     z-index: 10;
                     visibility: hidden;
                 }
-                /* Hover on any smaller div */
+                /* Hover on any smaller div: Makes Full image visible */
                 .gallery div:hover img:nth-child(3) {
                     visibility: visible;
                 }

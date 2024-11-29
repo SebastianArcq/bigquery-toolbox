@@ -40,7 +40,7 @@ devlog(">>> executing iconClicked.js...");
         navMenu = document.querySelectorAll("cfc-panel.pan-shell-section-nav-panel.cfc-panel.cfc-panel-color-white.cfc-panel-orientation-vertical")[0];
 
         // Top Bar
-        topBar = document.querySelectorAll("div.pan-shell-top-container.cfc-ng2-region")[0];
+        topBar = document.querySelector("#ocb-platform-bar");
 
         // Query results
         query_results1 = document.querySelectorAll("cfc-panel.cfc-panel.cfc-panel-color-grey.cfc-panel-orientation-horizontal")[0]; // left tab
